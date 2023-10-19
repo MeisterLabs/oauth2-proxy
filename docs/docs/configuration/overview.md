@@ -133,6 +133,7 @@ An example [oauth2-proxy.cfg](https://github.com/oauth2-proxy/oauth2-proxy/blob/
 | `--logging-max-size` | int | Maximum size in megabytes of the log file before rotation | 100 |
 | `--jwt-key` | string | private key in PEM format used to sign JWT, so that you can say something like `--jwt-key="${OAUTH2_PROXY_JWT_KEY}"`: required by login.gov | |
 | `--jwt-key-file` | string | path to the private key file in PEM format used to sign the JWT so that you can say something like `--jwt-key-file=/etc/ssl/private/jwt_signing_key.pem`: required by login.gov | |
+> `--jwt-auth-header` | string | alternate Authorization header for jwt, so that you can say something like `--jwt-header="X-Oauth2-proxy-Authorization"`: required for some clashes of Authorization header | "Authorization" |
 | `--login-url` | string | Authentication endpoint | |
 | `--insecure-oidc-allow-unverified-email` | bool | don't fail if an email address in an id_token is not verified | false |
 | `--insecure-oidc-skip-issuer-verification` | bool | allow the OIDC issuer URL to differ from the expected (currently required for Azure multi-tenant compatibility) | false |
