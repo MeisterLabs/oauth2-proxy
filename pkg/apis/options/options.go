@@ -27,6 +27,7 @@ type Options struct {
 	TrustedIPs         []string `flag:"trusted-ip" cfg:"trusted_ips"`
 	ForceHTTPS         bool     `flag:"force-https" cfg:"force_https"`
 	RawRedirectURL     string   `flag:"redirect-url" cfg:"redirect_url"`
+	JWTAuthHeader      string   `flag:"jwt-auth-header" cfg:"jwt_auth_header"`
 
 	AuthenticatedEmailsFile string   `flag:"authenticated-emails-file" cfg:"authenticated_emails_file"`
 	EmailDomains            []string `flag:"email-domain" cfg:"email_domains"`
