@@ -63,8 +63,8 @@ func (j *jwtSessionLoader) loadSession(next http.Handler) http.Handler {
 // (see the config options skip-jwt-bearer-tokens and extra-jwt-issuers)
 func (j *jwtSessionLoader) getJwtSession(req *http.Request) (*sessionsapi.SessionState, error) {
 	authHeader := "Authorization"
-	if j.jwtAuthHeader == "" {
-        authHeader = jwtAuthHeader
+	if j.jwtAuthHeader != "" {
+        authHeader = j.jwtAuthHeader
 	}
 	auth := req.Header.Get(authHeader)
 	if auth == "" {
