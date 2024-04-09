@@ -1189,13 +1189,13 @@ func checkAllowedEmails(req *http.Request, s *sessionsapi.SessionState) bool {
 // encodedState builds the OAuth state param out of our nonce and
 // original application redirect
 func encodeState(nonce string, redirect string, additional string) string {
-	return fmt.Sprintf("%v:%v:%v", nonce, redirect, additional)
+	return fmt.Sprintf("%v|%v|%v", nonce, redirect, additional)
 }
 
 // decodeState splits the reflected OAuth state response back into
 // the nonce and original application redirect
 func decodeState(req *http.Request) (string, string, string, error) {
-	state := strings.SplitN(req.Form.Get("state"), ":", 3)
+	state := strings.SplitN(req.Form.Get("state"), "|", 3)
 
 	if len(state) != 3 {
 		return "", "", "", errors.New("invalid length")
